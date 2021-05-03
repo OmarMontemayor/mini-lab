@@ -1,8 +1,4 @@
 class Pokemon < ApplicationRecord
-    has_many :parties
-    has_many :trainers, through: :parties
-
-    validates :name, uniqueness: true
     
     def self.get_data
         pokemon_list = RestClient.get 'https://pokeapi.co/api/v2/pokemon?&limit=151'
