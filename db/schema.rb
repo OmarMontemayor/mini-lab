@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_234612) do
+ActiveRecord::Schema.define(version: 2021_05_07_000455) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 2021_05_06_234612) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "double_damage_from"
+    t.text "double_damage_to"
+    t.text "half_damage_from"
+    t.text "half_damage_to"
+    t.text "no_damage_from"
+    t.text "no_damage_to"
   end
 
 end
