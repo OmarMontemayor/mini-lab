@@ -10,39 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_000455) do
+ActiveRecord::Schema.define(version: 2021_05_10_011718) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
-    t.integer "pokemon_id"
-    t.integer "trainer_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "pokemon1_id"
     t.integer "pokemon2_id"
     t.integer "pokemon3_id"
     t.integer "pokemon4_id"
     t.integer "pokemon5_id"
     t.integer "pokemon6_id"
-  end
-
-  create_table "party_pokemons", force: :cascade do |t|
-    t.string "pokemon_name"
-    t.string "pokemon_species"
-    t.integer "pokedex_entry"
-    t.string "type_1"
-    t.string "type_2"
+    t.integer "trainder_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "pokemons", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.string "species"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
+    t.integer "species_id"
     t.string "type_1"
     t.string "type_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -55,14 +51,14 @@ ActiveRecord::Schema.define(version: 2021_05_07_000455) do
   create_table "types", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.text "double_damage_from"
     t.text "double_damage_to"
     t.text "half_damage_from"
     t.text "half_damage_to"
     t.text "no_damage_from"
     t.text "no_damage_to"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

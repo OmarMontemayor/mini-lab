@@ -1,6 +1,6 @@
-class CreateTypes < ActiveRecord::Migration[6.1]
+class CreateSpecies < ActiveRecord::Migration[6.1]
   def change
-    create_table :types do |t|
+    create_table :species do |t|
       t.string :name
       t.string :url
 

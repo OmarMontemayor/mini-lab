@@ -1,0 +1,4 @@
+<h1>My Pokemon</h1>
+<% @pokemons.each do |pokemon| %>
+    <%= pokemon.nickname%> - <%= pokemon.species.name.capitalize %><br/>
+<% end %>
