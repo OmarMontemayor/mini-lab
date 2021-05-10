@@ -1,4 +1,6 @@
 <h1>My Pokemon</h1>
 <% @pokemons.each do |pokemon| %>
-    <%= pokemon.nickname%> - <%= pokemon.species.name.capitalize %><br/>
+    <%= link_to pokemon.nickname, edit_pokemon_path(pokemon) %> - <%= pokemon.species.name.capitalize %>: <%= pokemon.type_1 %> <%= pokemon.type_2 %><br/>
 <% end %>
+
+<%= link_to "Create Pokemon", new_pokemon_path %>

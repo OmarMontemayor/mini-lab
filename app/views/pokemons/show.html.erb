@@ -1,0 +1,6 @@
+<h1><%= @pokemon.nickname.capitalize %> Info</h1>
+<p>Species: <%= @pokemon.species.name.capitalize %></p><br>
+<p>Types: <%= @pokemon.type_1.capitalize %> <%= @pokemon.type_2 %></p><br>
+<%= link_to "Edit Pokemon", edit_pokemon_path(@pokemon) %><br>
+<%= link_to "All Pokemon", pokemons_path %><br>
+<%= link_to "Delete Pokemon", @pokemon, method: :delete, data: { confirm: "Say Goodbye to your buddy?" } %>

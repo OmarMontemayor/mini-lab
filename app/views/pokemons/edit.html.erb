@@ -1,0 +1,8 @@
+<h1>Edit Pokemon</h1>
+
+<%= form_for(@pokemon) do |f| %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %></br>
+
+    <%= f.submit %>
+<% end %>

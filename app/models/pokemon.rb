@@ -4,6 +4,8 @@ class Pokemon < ApplicationRecord
     belongs_to :species
     accepts_nested_attributes_for :parties
 
+    validates :nickname, uniqueness: true
+
     def self.create_pokemon(pokemon_params)
     
         @species = Species.find(pokemon_params["species_id"].to_i)
@@ -17,6 +19,20 @@ class Pokemon < ApplicationRecord
         species_types.each do |slot|
             types_array << slot["type"]["name"]
         end
-        @pokemon = Pokemon.create(nickname: pokemon_params["nickname"], species_id: pokemon_params["species_id"].to_i, type_1: types_array[0], type_2: types_array[1])
+        if types_array.length == 2
+            @pokemon = Pokemon.create(
+                nickname: pokemon_params["nickname"].capitalize,
+                species_id: pokemon_params["species_id"].to_i,
+                type_1: types_array[0].capitalize,
+                type_2: types_array[1].capitalize
+            )
+        else
+            @pokemon = Pokemon.create(
+                nickname: pokemon_params["nickname"].capitalize,
+                species_id: pokemon_params["species_id"].to_i,
+                type_1: types_array[0].capitalize,
+                type_2: types_array[1]
+            )
+        end
     end
 end
