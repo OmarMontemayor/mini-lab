@@ -2,10 +2,10 @@
 
 <%= form_for(@pokemon) do |f| %>
     <%= f.label :nickname %>
-    <%= f.text_field :nickname %></br>
+    <%= f.text_field :nickname %><br>
 
     <label>Species</label>
-    <%= collection_select( :pokemon, :species_id, Species.all, :id, :name, {}, { multiple: false }) %></br>
+    <%= collection_select(:pokemon, :species_id, Species.all, :id, :name) %><br>
 
     <%= f.submit %>
 <% end %>

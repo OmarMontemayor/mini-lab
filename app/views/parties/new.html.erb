@@ -7,24 +7,10 @@
     <%= f.text_field :name %><br>
 
     <label>Trainer Name:</label>
-    <%= f.collection_select :trainer_id, Trainer.order(:id), :id, :name, include_blank: true %><br>
+    <%= collection_select(:party, :trainer_id, Trainer.order(:id), :id, :name, include_blank: true) %><br>
 
     <label>Pokemon:</label>
-    <%= f.collection_select :pokemon_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
+    <%= collection_select(:party, :pokemon1_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
 
-    <label>Pokemon:</label>
-    <%= f.collection_select :pokemon2_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
-
-    <label>Pokemon:</label>
-    <%= f.collection_select :pokemon3_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
-
-    <label>Pokemon:</label>
-    <%= f.collection_select :pokemon4_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
-
-    <label>Pokemon:</label>
-    <%= f.collection_select :pokemon5_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
-
-    <label>Pokemon:</label>
-    <%= f.collection_select :pokemon6_id, Pokemon.order(:id), :id, :name, include_blank: true %><br>
     <%= f.submit %>
 <% end %>

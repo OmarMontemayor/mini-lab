@@ -1,6 +1,7 @@
 class PokemonsController < ApplicationController
     def new
         @pokemon = Pokemon.new
+        @species = Species.all
     end
 
     def create
