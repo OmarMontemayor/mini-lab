@@ -1,8 +1,7 @@
 class Pokemon < ApplicationRecord
-    has_many :parties
-    has_many :trainers, through: :parties
+    has_many :party_pokemons
+    has_many :parties, through: :party_pokemons
     belongs_to :species
-    accepts_nested_attributes_for :parties
 
     validates :nickname, uniqueness: true
 
