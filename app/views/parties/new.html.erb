@@ -1,5 +1,4 @@
 <h1>Create a New Pokemon Party</h1>
-<p>Select 6 Pokemon</p>
 
 <%= form_for(@party) do |f| %>
 
@@ -9,23 +8,8 @@
     <label>Trainer Name:</label>
     <%= collection_select(:party, :trainer_id, Trainer.order(:id), :id, :name, include_blank: true) %><br>
 
-    <label>Pokemon 1:</label>
-    <%= collection_select(:party, :pokemon1_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
-
-    <label>Pokemon 2:</label>
-    <%= collection_select(:party, :pokemon2_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
-
-    <label>Pokemon 3:</label>
-    <%= collection_select(:party, :pokemon3_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
-
-    <label>Pokemon 4:</label>
-    <%= collection_select(:party, :pokemon4_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
-
-    <label>Pokemon 5:</label>
-    <%= collection_select(:party, :pokemon5_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
-
-    <label>Pokemon 6:</label>
-    <%= collection_select(:party, :pokemon6_id, Pokemon.order(:id), :id, :nickname, include_blank: false) %><br>
+    <label>Select 6 Pokemon:</label>
+    <%= collection_check_boxes(:party, :pokemon_ids, Pokemon.all, :id, :nickname) %><br>
 
     <%= f.submit %>
 <% end %>

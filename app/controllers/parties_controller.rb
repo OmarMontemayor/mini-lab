@@ -4,7 +4,6 @@ class PartiesController < ApplicationController
     end
 
     def create
-        #binding.pry
         @party = Party.new(party_params)
         if @party.save
             redirect_to party_path(@party)
@@ -15,12 +14,30 @@ class PartiesController < ApplicationController
 
     def show
         @party = Party.find(params[:id])
-        @pokemon1 = Pokemon.find(@party.pokemon1_id)
-        @pokemon2 = Pokemon.find(@party.pokemon2_id)
-        @pokemon3 = Pokemon.find(@party.pokemon3_id)
-        @pokemon4 = Pokemon.find(@party.pokemon4_id)
-        @pokemon5 = Pokemon.find(@party.pokemon5_id)
-        @pokemon6 = Pokemon.find(@party.pokemon6_id)
+    end
+
+    def index
+        @parties = Party.all
+    end
+
+    def edit
+        @party = Party.find(params[:id])
+    end
+
+    def update
+        @party = Party.find(params[:id])
+
+        if @party.update(party_params)
+            redirect_to parties_path
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @party = Party.find(params[:id])
+        @party.destroy
+        redirect_to parties_path
     end
 
     private
@@ -29,12 +46,7 @@ class PartiesController < ApplicationController
         params.require(:party).permit(
             :name,
             :trainer_id,
-            :pokemon1_id,
-            :pokemon2_id,
-            :pokemon3_id,
-            :pokemon4_id,
-            :pokemon5_id,
-            :pokemon6_id
+            pokemon_ids:[]
         )
     end
 end

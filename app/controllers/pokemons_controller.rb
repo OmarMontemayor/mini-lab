@@ -22,7 +22,7 @@ class PokemonsController < ApplicationController
 
     def update
         @pokemon = Pokemon.find(params[:id])
-        if @pokemon.update(pokemon_params(:nickname))
+        if @pokemon.update(pokemon_params(:nickname, party_ids:[]))
             redirect_to pokemon_path(@pokemon)
         else
             render :edit

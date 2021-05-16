@@ -1,10 +1,10 @@
 <h1><%= @party.name %></h1>
-<p><%= @pokemon1.nickname %></p>
-<p><%= @pokemon2.nickname %></p>
-<p><%= @pokemon3.nickname %></p>
-<p><%= @pokemon4.nickname %></p>
-<p><%= @pokemon5.nickname %></p>
-<p><%= @pokemon6.nickname %></p>
 
-<%= link_to "All Parties", parties_path %>
-<%= link_to "Edit Party", edit_party_path(@party) %> 
+<p>
+Pokemon: <%= @party.pokemons.map(&:nickname).join(", ") %>
+</p>
+
+<%= link_to "All Parties", parties_path %><br>
+<%= link_to "Edit Party", edit_party_path(@party) %><br>
+<%= link_to "Delete Party", @party, method: :delete, data: { confirm: "Delete Party permanently?" } %>
+

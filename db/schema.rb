@@ -10,19 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_012306) do
+ActiveRecord::Schema.define(version: 2021_05_15_230049) do
 
   create_table "parties", force: :cascade do |t|
     t.string "name"
-    t.integer "pokemon1_id"
     t.integer "trainer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "pokemon2_id"
-    t.integer "pokemon3_id"
-    t.integer "pokemon4_id"
-    t.integer "pokemon5_id"
-    t.integer "pokemon6_id"
   end
 
   create_table "party_pokemons", force: :cascade do |t|
